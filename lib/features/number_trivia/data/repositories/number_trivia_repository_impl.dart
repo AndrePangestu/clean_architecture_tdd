@@ -1,6 +1,6 @@
 import 'package:clean_architecture_tdd/core/error/exceptions.dart';
 import 'package:clean_architecture_tdd/core/error/failures.dart';
-import 'package:clean_architecture_tdd/core/platform/network_info.dart';
+import 'package:clean_architecture_tdd/core/network/network_info.dart';
 import 'package:clean_architecture_tdd/features/number_trivia/data/datasources/number_trivia_local_data_sources.dart';
 import 'package:clean_architecture_tdd/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
 import 'package:clean_architecture_tdd/features/number_trivia/domain/entities/number_trivia.dart';
@@ -45,7 +45,7 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
         localDataSource.cacheNumberTrivia(remoteTrivia);
         return Right(remoteTrivia);
       } on ServerException {
-        return Left(ServerFailure());
+        return Left( ServerFailure());
       }
     } else {
       try {
